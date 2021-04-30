@@ -13,7 +13,7 @@ function Routes() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name=" " component={Main} />
-        <Stack.Screen name="  " component={Secundary} />
+        <Stack.Screen name="   " component={Secundary} />
 
       </Stack.Navigator>
     </NavigationContainer>
