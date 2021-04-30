@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
+import Background from '../../components/BackGround'
 
-export default class index extends Component {
-  render() {
-    return (
-      <View>
-        <Text> textInComponent </Text>
-      </View>
-    )
-  }
+export default function Main() {
+
+  return (
+    <Background>
+
+    </Background>
+  )
+
 }
+
+
