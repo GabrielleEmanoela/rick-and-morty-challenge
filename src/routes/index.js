@@ -11,9 +11,13 @@ const Stack = createStackNavigator();
 function Routes() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name=" " component={Main} />
-        <Stack.Screen name="   " component={Secundary} />
+
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false
+        }} >
+        <Stack.Screen name=" defdsfsdf" component={Main} />
+        <Stack.Screen name="fggfgfd" component={Secundary} />
 
       </Stack.Navigator>
     </NavigationContainer>
