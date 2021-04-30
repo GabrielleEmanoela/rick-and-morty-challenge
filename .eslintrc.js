@@ -18,7 +18,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier', 'jsf-ally',"import","react-hooks","prettier"],
+  plugins: ['react', 'prettier', 'jsf-ally', "import", "react-hooks", "prettier"],
   rules: {
     'prettier/prettier': 'error',
     'react/jsx-filename-extension': [
@@ -28,7 +28,7 @@ module.exports = {
       },
     ],
     'import/prefer-default-export': 'off',
-    "no-unused-vars": ["error",{extensions:[".js",]}],
+    "no-unused-vars": ["error", { extensions: [".js",] }],
     'react/state-in-constructor': 'off',
     'react/static-property-placement': 'off',
     "global-require": "off",
@@ -37,15 +37,16 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'react/prop-types': 'off',
     'no-param-reassign': 'off',
-    camelcase:"off",
-    'no-console': ["error", {allow :[ "tron"]}],
+    camelcase: "off",
+    'no-console': ["error", { allow: ["tron"] }],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"
   },
-  settigns: {
-    "import/resolver":{
-      "babel-plugin-root-import":{
-        rootPathSuffix: "src"
+  settings: {
+    'import/resolver': {
+      'babel-plugin-root-import': {
+        rootPathPrefix: '~',
+        rootPathSuffix: 'src',
       }
     }
   }
