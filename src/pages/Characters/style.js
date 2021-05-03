@@ -1,0 +1,30 @@
+import styled from 'styled-components/native';
+
+export const Container = styled.SafeAreaView`
+
+`;
+export const Title = styled.Text`
+font-size : 20px;
+color: #FFF;
+font-weight:bold;
+align-self:center;
+margin-top: 30px;
+`
+
+export const Left = styled.View`
+dis\play: flex;
+flex-direction: row;
+align-items: center;
+`
+
+export const Avatar = styled.Image`
+`
+export const List = styled.FlatList.attrs({
+  showsVerticalScrollIndicator: false,
+  contentContainerStyle: { padding: 30 }
+})`
+
+
+`
+export const Info = styled.View`
+`
