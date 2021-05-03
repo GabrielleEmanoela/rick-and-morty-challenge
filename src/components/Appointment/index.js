@@ -9,14 +9,16 @@ export default function Appointment() {
       <Left>
         <Avatar source={{ uri: 'https://rickandmortyapi.com/api/character/avatar/361.jpeg' }} />
         <Info>
-          <Name>
-            Gabrielle
+          <TouchableOpacity onPress={() => { }}>
+            <Name>
+              Gabrielle
       </Name>
+          </TouchableOpacity>
+
         </Info>
       </Left>
-      <TouchableOpacity onPress={() => { }}>
-        <Icon name="event-busy" size={20} color="#000" />
-      </TouchableOpacity>
+
+      {/* <Icon name="event-busy" size={20} color="#000" /> */}
 
     </Container>
 
