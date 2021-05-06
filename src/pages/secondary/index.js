@@ -1,12 +1,19 @@
-import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import React, { useRef, useState } from 'react';
+import { Text, View } from 'react-native';
+import BackGround from '~/components';
+// import { SubmitButton } from '../Characters/style';
 
-export default class index extends Component {
-  render() {
-    return (
-      <View>
-        <Text> textInComponent </Text>
-      </View>
-    )
-  }
+function CharactersProfile() {
+  return (
+    <BackGround>
+      <Container>
+        <Title></Title>
+        <Form>
+          {/* <SubmitButton onPress={handleSubmit}>Atualizar perfil</SubmitButton> */}
+        </Form>
+      </Container>
+    </BackGround>
+  );
 }
+
+export default CharactersProfile;

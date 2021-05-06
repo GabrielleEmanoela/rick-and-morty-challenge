@@ -1,23 +1,27 @@
-import { persistStore } from 'redux-persist';
-import createSagaMiddleware from 'redux-saga';
-import createStore from './ceateStore';
-import persistReducers from './persistReducers';
-import rootReducer from './modules/rootReducer';
-import rootSaga from './modules/rootSaga';
+import '~/config/reactotron';
+import { applyMiddleware, compose, createStore } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist';
+import thunkMiddleware from 'redux-thunk';
+import AsyncStorage from '@react-native-community/async-storage';
 
+import rootReducer from './rootReducers';
 
-const sagaMonitor =
-  process.env.NODE_ENV === "development"
-    ? console.tron.createSagaMonitor()
-    : null;
+const configPersist = {
+  key: 'RickMorty',
+  storage: AsyncStorage,
+  version: 1,
+};
 
+const reactotron = __DEV__ && console.tron.createEnhancer();
 
-const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
+const composeEnhancers = __DEV__
+  ? compose(applyMiddleware(thunkMiddleware), reactotron)
+  : compose(applyMiddleware(thunkMiddleware));
 
-const middlewares = [sagaMiddleware];
-const store = createStore(persistReducers(rootReducer), middlewares);
+const persistedReducer = persistReducer(configPersist, rootReducer);
+
+const store = createStore(persistedReducer, composeEnhancers);
+
 const persistor = persistStore(store);
 
-sagaMiddleware.run(rootSaga);
-
-export { store, persistor }
+export { store, persistor };
