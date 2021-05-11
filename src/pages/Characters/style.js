@@ -38,9 +38,10 @@ export const Input = styled.TextInput`
 export const SubmitButton = styled.View`
 justify-content:center;
 left:-30px
-border-radius:4px;
-margin-left:-10px
-background:#6DAF15`;
+/* border-radius:4px; */
+margin-left:-10px  
+/* background:#6DAF15 */
+`;
 
 export const Left = styled.View`
   display: flex;

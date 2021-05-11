@@ -15,13 +15,9 @@ function Card({ id, name, image, status, type, gender }) {
         <Info>
           <TouchableOpacity onPress={() => {}}>
             <Name>{name}</Name>
-            <Name>{gender}</Name>
-            <Name>{status}</Name>
-            <Name>{type}</Name>
           </TouchableOpacity>
         </Info>
       </Left>
-      <Icon name="event-busy" size={20} color="#000" />
     </Container>
   );
 }

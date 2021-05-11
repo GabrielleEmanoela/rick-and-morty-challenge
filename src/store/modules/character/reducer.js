@@ -10,6 +10,7 @@ export default function characterReducer(state = INITIAL_STATE, action) {
   switch (type) {
     case types.SET_CHARACTERS_RESULT:
       return { ...state, info: payload.info, characters: payload.results };
+
     default:
       return state;
   }

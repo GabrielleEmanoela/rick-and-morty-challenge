@@ -8,10 +8,19 @@ function setCharacters(payload) {
   };
 }
 
-export const getCharacters = () => async dispatch => {
+export const getCharacters = (page = 1) => async (dispatch, getState) => {
   try {
-    const { data } = await api.get('/character');
-    dispatch(setCharacters(data));
+    const { characters } = getState().characterReducer;
+
+    const { data } = await api.get(`/character/?page=${page}`);
+
+    // console.tron.log('results', results);
+    const result = {
+      ...data,
+      results: page > 1 ? [...characters, ...data.results] : data.results,
+    };
+
+    dispatch(setCharacters(result));
   } catch (error) {
     dispatch({ type: 'SET_CHARACTERS_ERROR' });
   }
