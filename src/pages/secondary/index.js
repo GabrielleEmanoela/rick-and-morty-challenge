@@ -1,17 +1,19 @@
-import React, { useRef, useState } from 'react';
-import { Text, View } from 'react-native';
-import BackGround from '~/components';
-// import { SubmitButton } from '../Characters/style';
+import React from 'react';
+import Icon from 'react-native-vector-icons/AntDesign';
+import BackGround from '~/components/Background';
+import * as Styled from './style';
+import { useNavigation } from '@react-navigation/native';
 
 function CharactersProfile() {
+  const navigation = useNavigation();
+
   return (
     <BackGround>
-      <Container>
-        <Title></Title>
-        <Form>
-          {/* <SubmitButton onPress={handleSubmit}>Atualizar perfil</SubmitButton> */}
-        </Form>
-      </Container>
+      <Styled.Container>
+        <Styled.Button onPress={() => navigation.goBack()}>
+          <Icon name="leftcircle" size={20} color="#000" />
+        </Styled.Button>
+      </Styled.Container>
     </BackGround>
   );
 }

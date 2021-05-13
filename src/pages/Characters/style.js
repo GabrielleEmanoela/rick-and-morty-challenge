@@ -35,12 +35,12 @@ export const Input = styled.TextInput`
   align-items: center;
 `;
 
-export const SubmitButton = styled.View`
-justify-content:center;
-left:-30px
-/* border-radius:4px; */
-margin-left:-10px  
-/* background:#6DAF15 */
+export const SubmitButton = styled.TouchableOpacity`
+  justify-content: center;
+  left: -30px;
+  /* border-radius:4px; */
+  /* margin-left:-10px   */
+  /* background:#6DAF15 */
 `;
 
 export const Left = styled.View`
@@ -50,7 +50,7 @@ export const Left = styled.View`
 `;
 
 export const List = styled.FlatList.attrs({
-  showsVerticalScrollIndicator: false,
+  showsVerticalScrollIndicator: false, //Pra n mostrar a barra de rolagem.
   contentContainerStyle: { padding: 30 },
 })`
   margin-top: -15px;

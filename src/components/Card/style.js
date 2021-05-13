@@ -33,3 +33,4 @@ export const Name = styled.Text`
   display: flex;
   flex-direction: row;
 `;
+export const TouchableOpacity = styled.TouchableOpacity``;

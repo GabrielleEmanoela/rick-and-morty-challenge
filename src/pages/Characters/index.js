@@ -1,8 +1,7 @@
+import { set } from 'immer/dist/internal';
 import React, { useEffect } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { get } from 'react-native/Libraries/Utilities/PixelRatio';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { Background, Card } from '~/components';
 import api from '~/services/api';
 import { characterActions } from '~/store/modules';
@@ -10,17 +9,24 @@ import * as Styled from './style';
 
 function Characters() {
   const dispatch = useDispatch();
-
-  // const [offset, setOffset] = useState(0);
-  // const [search, setSearch] = useState(null);
-  // const [loadItems, setLoadItems] = useState(false);
   const { characters, info } = useSelector(state => state.characterReducer);
-
+  const [filter, setfilter] = useState('');
   useEffect(() => {
     dispatch(characterActions.getCharacters());
   }, []);
 
   //Aplicando filter.
+  // const onSubmit = valueSet => {
+  //   const CharacterInfo = { ...characters, name: valueSet };
+  //   dispatch(characterActions.getCharacters());
+  //   const filter = characters.map(item => {
+  //     if (item.id === characters.info) {
+  //       return CharacterInfo;
+  //     } else {
+  //       return item;
+  //     }
+  //   });
+  // };
 
   //Tentando renderizar tudo em uma pagina.
   function onEndReached() {
@@ -28,9 +34,7 @@ function Characters() {
       dispatch(characterActions.getCharacters(characters.length / 20 + 1));
   }
 
-  // useEffect(() => {
-  //   onEndReached(false);
-  // }, [characters]);
+  const filterCount = 
 
   return (
     <Background>
@@ -38,10 +42,16 @@ function Characters() {
         <Styled.Title>Rick And Morty</Styled.Title>
         <Styled.Form>
           <Styled.ContainerInput>
-            <Styled.Input placeholder="Digite o nome do personagem" />
+            <Styled.Input
+              // autoCorrect={false}
+              // autoCapitalize="none"
+              // value={valueSet}
+              //returnKeyType="send"
+              onChangeText={e => setFilter(e.target.value)} //teste tem que ser um valor vazio
+              placeholder="Digite o nome do personagem"
+            />
           </Styled.ContainerInput>
-
-          <Styled.SubmitButton>
+          <Styled.SubmitButton onPress={() => console.tron.log('teste')}>
             <Icon name="search" size={20} color="#000" />
           </Styled.SubmitButton>
         </Styled.Form>

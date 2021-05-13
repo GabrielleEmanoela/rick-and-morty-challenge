@@ -1,24 +1,26 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
-import { Container, Left, Avatar, Name, Info } from './styles';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import * as Styled from './style';
+import { useNavigation } from '@react-navigation/native';
 
-function Card({ id, name, image, status, type, gender }) {
+function Card({ id, name, image, status, type, gende }) {
+  const navigation = useNavigation();
+
   return (
-    <Container>
-      <Left>
-        <Avatar
+    <Styled.Container>
+      <Styled.Left>
+        <Styled.Avatar
           source={{
             uri: image,
           }}
         />
-        <Info>
-          <TouchableOpacity onPress={() => {}}>
-            <Name>{name}</Name>
-          </TouchableOpacity>
-        </Info>
-      </Left>
-    </Container>
+        <Styled.Info>
+          <Styled.TouchableOpacity
+            onPress={() => navigation.navigate('CharactersProfile')}>
+            <Styled.Name>{name}</Styled.Name>
+          </Styled.TouchableOpacity>
+        </Styled.Info>
+      </Styled.Left>
+    </Styled.Container>
   );
 }
 

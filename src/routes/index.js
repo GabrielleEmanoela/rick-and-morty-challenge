@@ -1,9 +1,8 @@
-import { View, Text } from 'react-native';
-import * as React from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Characters from '../pages/Characters';
-import Secundary from '../pages/Secondary';
+import CharactersProfile from '../pages/Secondary';
 
 const Stack = createStackNavigator();
 
@@ -14,8 +13,8 @@ function Routes() {
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name=" Main" component={Characters} />
-        <Stack.Screen name="Secondary" component={Secundary} />
+        <Stack.Screen name="Characters" component={Characters} />
+        <Stack.Screen name="CharactersProfile" component={CharactersProfile} />
       </Stack.Navigator>
     </NavigationContainer>
   );
