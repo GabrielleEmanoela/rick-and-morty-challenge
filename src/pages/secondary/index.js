@@ -1,18 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/AntDesign';
 import BackGround from '~/components/Background';
 import * as Styled from './style';
-import { useNavigation } from '@react-navigation/native';
 
-function CharactersProfile() {
-  const navigation = useNavigation();
-
+function CharactersProfile({
+  navigation,
+  route: {
+    params: {
+      character: { image, name, species, gender },
+    },
+  },
+}) {
+  const [isEditable, setIsEditable] = useState(false);
   return (
     <BackGround>
       <Styled.Container>
-        <Styled.Button onPress={() => navigation.goBack()}>
-          <Icon name="leftcircle" size={20} color="#000" />
-        </Styled.Button>
+        <Styled.Back onPress={() => navigation.goBack()}>
+          <Icon name="left" size={25} color="white" />
+        </Styled.Back>
+        <Styled.Content>
+          <Styled.ContainerEditIcon onPress={() => setIsEditable(!isEditable)}>
+            <Icon name="edit" size={25} color="white" />
+          </Styled.ContainerEditIcon>
+
+          <Styled.Logo source={{ uri: image }} />
+
+          <Styled.TextInput
+            value={name}
+            onChangeText={name => map(value)}
+            editable={isEditable}
+          />
+          <Styled.TextInput
+            value={species}
+            onChangeText={species => map(value)}
+            editable={isEditable}
+          />
+          <Styled.TextInput
+            value={gender}
+            onChangeText={gender => map(value)}
+            editable={isEditable}
+          />
+          <Styled.onSubmit onPress={() => navigation.goBack()}>
+            <Icon name="down-square-o" size={25} color="white" />
+          </Styled.onSubmit>
+        </Styled.Content>
       </Styled.Container>
     </BackGround>
   );

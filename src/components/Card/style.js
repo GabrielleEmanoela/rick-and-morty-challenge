@@ -1,36 +1,36 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
-  margin-bottom: 17px;
-  padding: 10px;
+export const Container = styled.TouchableOpacity`
+  background-color: #6daf15;
+  width: 100%;
+  height: 100px;
   border-radius: 6px;
-  background: #6daf15;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  margin-bottom: 17px;
 `;
 
-export const Left = styled.View`
-  display: flex;
+export const Content = styled.View`
   flex-direction: row;
-  align-items: center;
+  padding: 10px;
 `;
 
 export const Avatar = styled.Image`
-  width: 60px;
+  width: 80px;
+  height: 80px;
+  border-radius: 3px;
+`;
 
-  height: 60px;
-  border-radius: 35px;
-`;
 export const Info = styled.View`
-  margin-left: 25px;
+  flex: 1;
+  padding-left: 10px;
 `;
-export const Name = styled.Text`
-  font-weight: bold;
-  font-size: 14px;
+
+export const Label = styled.Text.attrs({
+  numberOfLines: 1,
+})`
+  font-weight: ${({ isBold }) => (isBold ? 'bold' : 'normal')};
+  font-size: ${({ fontSize }) => fontSize}px;
+  margin-bottom: 3px;
   color: #fff;
-  display: flex;
-  flex-direction: row;
 `;
+
 export const TouchableOpacity = styled.TouchableOpacity``;

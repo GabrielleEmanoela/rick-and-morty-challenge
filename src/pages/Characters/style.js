@@ -21,7 +21,7 @@ export const Form = styled.View`
 export const ContainerInput = styled.View`
   flex: 1;
   height: 40px;
-  margin-left: 10px;
+  margin: 0 1px 0 1px;
   background: #eee;
   border-radius: 4px;
   padding: 0 15px;
@@ -35,23 +35,19 @@ export const Input = styled.TextInput`
   align-items: center;
 `;
 
-export const SubmitButton = styled.TouchableOpacity`
-  justify-content: center;
-  left: -30px;
-  /* border-radius:4px; */
-  /* margin-left:-10px   */
-  /* background:#6DAF15 */
-`;
-
 export const Left = styled.View`
-  display: flex;
   flex-direction: row;
   align-items: center;
 `;
 
 export const List = styled.FlatList.attrs({
+  initialNumToRender: 20,
   showsVerticalScrollIndicator: false, //Pra n mostrar a barra de rolagem.
-  contentContainerStyle: { padding: 30 },
+  contentContainerStyle: {
+    paddingBottom: 20,
+    paddingRight: 20,
+    paddingLeft: 20,
+  },
 })`
-  margin-top: -15px;
+  flex: 1;
 `;
