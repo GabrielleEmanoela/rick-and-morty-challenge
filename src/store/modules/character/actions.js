@@ -13,8 +13,6 @@ export const getCharacters = (page = 1) => async (dispatch, getState) => {
     const { characters } = getState().characterReducer;
 
     const { data } = await api.get(`/character/?page=${page}`);
-
-    // console.tron.log('results', results);
     const result = {
       ...data,
       results: page > 1 ? [...characters, ...data.results] : data.results,
@@ -25,3 +23,5 @@ export const getCharacters = (page = 1) => async (dispatch, getState) => {
     dispatch({ type: 'SET_CHARACTERS_ERROR' });
   }
 };
+
+// export const editCharacter
