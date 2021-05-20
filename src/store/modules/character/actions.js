@@ -8,6 +8,13 @@ function setCharacters(payload) {
   };
 }
 
+function setCharacterUpdate(payload) {
+  return {
+    type: types.SET_CHARACTER_UPDATE,
+    payload,
+  };
+}
+
 export const getCharacters = (page = 1) => async (dispatch, getState) => {
   try {
     const { characters } = getState().characterReducer;
@@ -24,4 +31,21 @@ export const getCharacters = (page = 1) => async (dispatch, getState) => {
   }
 };
 
-// export const editCharacter
+export const editCharacter = character => async (dispatch, getState) => {
+  try {
+    const { characters } = getState().characterReducer;
+    const newList = characters.map(item => {
+      if (item.id === character.id)
+        return {
+          ...item,
+          name: character.name,
+          species: character.species,
+          gender: character.gender,
+        };
+      return item;
+    });
+    dispatch(setCharacterUpdate(newList));
+  } catch (error) {
+    dispatch({ type: 'SET_CHARACTERS_ERROR' });
+  }
+};

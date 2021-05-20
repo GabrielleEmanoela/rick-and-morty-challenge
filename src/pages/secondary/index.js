@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { characterActions } from '~/store/modules';
 
 import * as Styled from './style';
 import BackGround from '~/components/Background';
+import { editCharacter } from '~/store/modules/character/actions';
 
 const schema = Yup.object().shape({
   name: Yup.string().required('Campo obrigatório.'),
@@ -18,7 +20,7 @@ function CharactersProfile({
   navigation,
   route: {
     params: {
-      character: { image, name, species, gender },
+      character: { id, image, name, species, gender },
     },
   },
 }) {
@@ -36,29 +38,9 @@ function CharactersProfile({
     resolver: yupResolver(schema),
   });
 
-  // function onSubmit() {
-  //   const ArrChar = characters.map(item => {
-  //     if (item.id === characters.id) {
-  //       dispatch(characterActions(data));
-  //     } else {
-  //     }
-  //   });
-  //   // console.tron.log(characters.id);
-  //   // console.tron.log(ArrChar);
-  //   // console.tron.log(value);
-  //   // dispatch(characterAction(value));
-  // }
-  // function onSubmit() {
-  //   // const values = getValues();
-  //   const ArrCharacter = characters.map(item => {
-  //     if (item.id === characters.id) {
-  //     }
-  //   });
-  // }
-
   const onSubmit = data => {
-    console.tron.log(data);
     setIsEditable(false);
+    dispatch(characterActions.editCharacter({ id, ...data }));
   };
 
   return (
