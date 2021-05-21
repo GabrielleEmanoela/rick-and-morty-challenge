@@ -8,7 +8,7 @@ export const Container = styled.SafeAreaView`
 export const Content = styled.View`
   background-color: #6daf15;
   width: 90%;
-  height: 45%;
+  height: 60%;
   margin-top: 20%;
   align-items: center;
   padding: 15px 10px 10px 10px;
@@ -24,21 +24,21 @@ export const Back = styled.TouchableOpacity`
 export const ContainerEditIcon = styled.TouchableOpacity`
   position: absolute;
   top: 10px;
-  left: 95%;
+  left: 95%;ððð
 `;
 
 export const Label = styled.Text`
-  font-size: 20px;
-  color: #fff;
+  font-size: 10px;
+  color: #ff0000;
+  flex-direction: center;
   font-weight: bold;
-  margin-top: 5px;
 `;
 
 export const TextInput = styled.TextInput`
-  font-size: 20px;
-  color: #fff;
+  font-size: 16px;
+  color: #ffff;
   font-weight: bold;
-  margin-top: 5px;
+  margin-top: 20px;
 `;
 
 export const Logo = styled.Image`
@@ -48,4 +48,11 @@ export const Logo = styled.Image`
 `;
 export const onSubmit = styled.TouchableOpacity`
   top: 30px;
+  background-color: #ffff;
+`;
+export const onSubmitText = styled.Text`
+  color: #6daf15;
+  font-weight: bold;
+
+  padding: 10px 10px 10px 10px;
 `;
