@@ -24,21 +24,33 @@ export const Back = styled.TouchableOpacity`
 export const ContainerEditIcon = styled.TouchableOpacity`
   position: absolute;
   top: 10px;
-  left: 95%;ððð
+  left: 95%;
+`;
+
+export const ContainerInput = styled.View`
+  align-items: center;
+  margin-top: 10px;
+  border-radius: 4px;
+  height: 40px;
+  width: 80%;
+  padding: 0 0 0px 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  flex-direction: row;
+  /* margin-left: 10px; */
 `;
 
 export const Label = styled.Text`
   font-size: 10px;
   color: #ff0000;
-  flex-direction: center;
   font-weight: bold;
+  right: 20%;
 `;
 
 export const TextInput = styled.TextInput`
   font-size: 16px;
   color: #ffff;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 3px;
 `;
 
 export const Logo = styled.Image`
@@ -53,6 +65,8 @@ export const onSubmit = styled.TouchableOpacity`
 export const onSubmitText = styled.Text`
   color: #6daf15;
   font-weight: bold;
-
   padding: 10px 10px 10px 10px;
+`;
+export const Icon = styled.View`
+  /* margin-right: 10; */
 `;

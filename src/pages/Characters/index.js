@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { RefreshControl } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useDispatch, useSelector } from 'react-redux';
 import { Background, Card } from '~/components';
 import api from '~/services/api';

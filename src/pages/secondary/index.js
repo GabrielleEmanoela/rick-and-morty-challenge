@@ -50,60 +50,91 @@ function CharactersProfile({
           <Icon name="left" size={25} color="white" />
         </Styled.Back>
         <Styled.Content>
-          <Styled.ContainerEditIcon onPress={() => setIsEditable(!isEditable)}>
-            <Icon name="edit" size={25} color="white" />
-          </Styled.ContainerEditIcon>
+          {!isEditable && (
+            <Styled.ContainerEditIcon
+              onPress={() => setIsEditable(!isEditable)}>
+              <Icon name="edit" size={25} color="white" />
+            </Styled.ContainerEditIcon>
+          )}
           <Styled.Logo source={{ uri: image }} />
-          <Controller
-            control={control}
-            render={({ field: { onChange, onBlur, value } }) => (
-              <Styled.TextInput
-                onBlur={onBlur}
-                value={value}
-                onChangeText={value => onChange(value)}
-                editable={isEditable}
-              />
-            )}
-            name="name"
-            rules={{ required: true }}
-            defaultValue={name}
-          />
-          {errors.name && <Styled.Label>This is required.</Styled.Label>}
+          <Styled.ContainerInput>
+            <Styled.Icon>
+              <Icon name="user" size={20} color="rgba(255,255,255,0.6)" />
+            </Styled.Icon>
+            <Controller
+              control={control}
+              // rules={{
+              //   validate: name =>
+              //     schema.validate({ name }).catch(e => e.message),
+              // }}
+              render={({ field: { onChange, onBlur, value } }) => (
+                <Styled.TextInput
+                  onBlur={onBlur}
+                  value={value}
+                  onChangeText={value => onChange(value)}
+                  editable={isEditable}
+                />
+              )}
+              name="name"
+              rules={{ required: true }}
+              defaultValue={name}
+            />
+          </Styled.ContainerInput>
+          {errors.name && <Styled.Label>{errors.name.message}</Styled.Label>}
 
-          <Controller
-            control={control}
-            render={({ field: { onChange, onBlur, value } }) => (
-              <Styled.TextInput
-                onBlur={onBlur}
-                value={value}
-                onChangeText={value => onChange(value)}
-                editable={isEditable}
-              />
-            )}
-            name="species"
-            rules={{ required: true }}
-            defaultValue={species}
-          />
-          {errors.species && <Styled.Label>This is required.</Styled.Label>}
+          <Styled.ContainerInput>
+            <Styled.Icon>
+              <Icon name="woman" size={20} color="rgba(255,255,255,0.6)" />
+            </Styled.Icon>
+            <Controller
+              control={control}
+              // rules={{
+              //   validate: species =>
+              //     schema.validate({ species }).catch(e => e.message),
+              // }}
+              render={({ field: { onChange, onBlur, value } }) => (
+                <Styled.TextInput
+                  onBlur={onBlur}
+                  value={value}
+                  onChangeText={value => onChange(value)}
+                  editable={isEditable}
+                />
+              )}
+              name="species"
+              rules={{ required: true }}
+              defaultValue={species}
+            />
+          </Styled.ContainerInput>
+          {errors.species && (
+            <Styled.Label>{errors.species.message}</Styled.Label>
+          )}
 
-          <Controller
-            control={control}
-            render={({ field: { onChange, onBlur, value } }) => (
-              <Styled.TextInput
-                onBlur={onBlur}
-                value={value}
-                onChangeText={value => onChange(value)}
-                editable={isEditable}
-              />
-            )}
-            name="gender"
-            rules={{ required: true }}
-            defaultValue={gender}
-          />
-          {errors.gender && <Styled.Label>This is required.</Styled.Label>}
+          <Styled.ContainerInput>
+            <Styled.Icon>
+              <Icon name="man" size={20} color="rgba(255,255,255,0.6)" />
+            </Styled.Icon>
+            <Controller
+              control={control}
+              render={({ field: { onChange, onBlur, value } }) => (
+                <Styled.TextInput
+                  onBlur={onBlur}
+                  value={value}
+                  onChangeText={value => onChange(value)}
+                  editable={isEditable}
+                />
+              )}
+              name="gender"
+              rules={{ required: true }}
+              defaultValue={gender}
+            />
+          </Styled.ContainerInput>
+          {errors.gender && (
+            <Styled.Label>{errors.gender.message}</Styled.Label>
+          )}
+
           {isEditable && (
             <Styled.onSubmit onPress={handleSubmit(onSubmit)}>
-              <Icon name="down-square-o" size={25} color="white" />
+              <Styled.onSubmitText>Salvar</Styled.onSubmitText>
             </Styled.onSubmit>
           )}
         </Styled.Content>
