@@ -8,7 +8,7 @@ export const Container = styled.SafeAreaView`
 export const Content = styled.View`
   background-color: #6daf15;
   width: 90%;
-  height: 70%;
+  height: 60%;
   margin-top: 20%;
   align-items: center;
   padding: 15px 10px 10px 10px;
